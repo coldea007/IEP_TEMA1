@@ -9,10 +9,15 @@ Produse::Produse(char N, int  C, float  P)
 	cantitate(C),
 	pret(P)
 {}
+Produse::Produse( float  P)
+
+	:pret(P)
+{}
 
 Produse::~Produse() {}
 
 Produse::Produse(const Produse &obj) {
+	Client(obj);
 	name = obj.name;
 	cantitate = obj.cantitate;
 	pret = obj.pret;
@@ -20,13 +25,18 @@ Produse::Produse(const Produse &obj) {
 
 Produse &Produse::operator=(const Produse &ob)
 {
+	Client::operator=(ob);
 	name = ob.name;
 	cantitate = ob.cantitate;
 	pret = ob.pret;
 	cout << "Assignment operator called " << endl;
 	return *this;
 }
-
+Produse& Produse:: operator+=(const Produse& ob2)
+{
+	this->pret = this->pret + ob2.pret;
+	return *this;
+}
 Produse &Produse::getProdusInstance() {
 	static Produse p(this->getName(), this->getPret(), this->getCantitate());
 	return p;
