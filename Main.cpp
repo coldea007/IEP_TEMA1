@@ -15,6 +15,8 @@ int main() {
 
 	Magazin m1(p1, p2);
 	cout << "Pretul total este:" << m1.pretTotal();
-
+	Produse p4('Suc', 1, 6.5);
+	p1 = p2 = p3;
+	p1 += p2;
 	return 0;
 }	
